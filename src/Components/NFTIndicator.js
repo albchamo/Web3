@@ -2,15 +2,14 @@ import React, { useEffect } from 'react';
 import './NFTIndicator.css'; // Import the CSS file
 
 const NFTIndicator = ({ nfts }) => {
-  useEffect(() => {
-    console.log("NFTs: ", nfts);
-  }, [nfts]);
-
-  const hasNFT = nfts.length > 0; // True if the user owns at least one NFT
-  console.log("Has NFT: ", hasNFT);
+  
+  // Check if nfts is defined and has items
+  const hasNFTs = nfts && nfts.length > 0;
 
   return (
-    <div className={`nft-indicator ${hasNFT ? 'has-nft' : ''}`}></div>
+    <div className={`nft-indicator ${hasNFTs ? 'has-nft' : ''}`}>
+      {/* Your other code */}
+    </div>
   );
 };
 

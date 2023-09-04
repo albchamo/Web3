@@ -4,11 +4,16 @@ import Navbar from './Components/Navbar';
 import { wagmiConfig, ethereumClient, WagmiProvider, projectId } from './config/WagmiConfig';
 import NFTList from './Components/NFTList';
 import NFTIndicator from './Components/NFTIndicator';
+import TokenIndicator from './Components/TokenIndicator';
+import TokenList from './Components/TokenList';
+import TokenConfig from './config/TokenConfig';
 
 function App() {
   const [accountInfo, setAccountInfo] = useState(null);
   const [nfts, setNFTs] = useState([]);
   const { isOpen } = useWeb3Modal();
+  const [tokens, setTokens] = useState([]);
+  const nftContractAddress = TokenConfig.nftContractAddress;
 
   const fetchAccountInfo = async () => {
     const fetchedAccountInfo = await ethereumClient.getAccount();
@@ -28,7 +33,9 @@ function App() {
     <>
       <WagmiProvider>
         <Navbar accountInfo={accountInfo} setAccountInfo={setAccountInfo} />
-        <NFTList accountInfo={accountInfo} contractAddress="0xe3c783d9647d72f7f13ace64892630e7e33bc968" setParentNFTs={setNFTs} />
+        <NFTList accountInfo={accountInfo} contractAddress= {nftContractAddress} setParentNFTs={setNFTs} />
+        <TokenList accountInfo={accountInfo} setParentTokens={setTokens} />
+        <TokenIndicator tokens={tokens}  />
         <NFTIndicator nfts={nfts} />
       </WagmiProvider>
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />

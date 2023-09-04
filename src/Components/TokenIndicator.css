@@ -1,0 +1,12 @@
+/* TokenIndicator.css */
+
+.token-indicator {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+  }
+  
+  .token-indicator.has-token {
+    background-color: green;
+  }
+  
