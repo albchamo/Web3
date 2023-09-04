@@ -1,0 +1,11 @@
+.nft-indicator {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: 20px auto;
+  }
+  
+  .nft-indicator.has-nft {
+    background-color: #ff6000;
+  }
+  
